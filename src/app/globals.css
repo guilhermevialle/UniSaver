@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  -webkit-tap-highlight-color: transparent;
+}
