@@ -1,4 +1,4 @@
-import { AudioFormat, Video, VideoFormat } from '@/types'
+import { AudioFormat, FullFormat, Video, VideoFormat } from '@/types'
 import axios from 'axios'
 
 export const api = axios.create({
@@ -41,6 +41,32 @@ export async function findTargetVideoFormats(
 ): Promise<VideoFormat[] | undefined> {
   try {
     const { data } = await api.get(`/video_video/${id}`)
+    return data
+  } catch (error) {
+    return undefined
+  }
+}
+
+export async function findTargetFullFormats(
+  id: string
+): Promise<FullFormat[] | undefined> {
+  try {
+    const { data } = await api.get(`/video_both/${id}`)
+    return data
+  } catch (error) {
+    return undefined
+  }
+}
+
+export async function getFormatBlob(
+  format: AudioFormat | VideoFormat | FullFormat,
+  url: string
+): Promise<Blob | undefined> {
+  try {
+    const { data } = await api.post(`/format/pipe`, {
+      format,
+      url,
+    })
     return data
   } catch (error) {
     return undefined

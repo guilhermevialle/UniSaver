@@ -1,6 +1,7 @@
 import TheVideo from '@/pages/TheVideo'
 import {
   findTargetAudioFormats,
+  findTargetFullFormats,
   findTargetVideoFormats,
   findUniqueVideo,
 } from '@/services/api'
@@ -15,9 +16,8 @@ export default async function ServerVideo({ params }: Props) {
   const formats = {
     audios: await findTargetAudioFormats(id),
     videos: await findTargetVideoFormats(id),
+    full: await findTargetFullFormats(id),
   }
-
-  console.log(formats)
 
   return <TheVideo video={video} id={id} formats={formats} />
 }

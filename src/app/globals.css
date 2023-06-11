@@ -10,3 +10,7 @@ button:active,
 div:active {
   -webkit-tap-highlight-color: transparent;
 }
+
+*::-webkit-scrollbar {
+  display: none;
+}

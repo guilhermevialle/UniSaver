@@ -2,7 +2,7 @@ import Format from '@/components/Format'
 import Search from '@/components/Search'
 import VideoCard from '@/components/cards/Video'
 import Padding from '@/components/layout/Padding'
-import { AudioFormat, Video, VideoFormat } from '@/types'
+import { AudioFormat, FullFormat, Video, VideoFormat } from '@/types'
 import megabytes from '@/utils/megabytes'
 import { v4 } from 'uuid'
 
@@ -12,6 +12,7 @@ type Props = {
   formats: {
     audios: AudioFormat[] | undefined
     videos: VideoFormat[] | undefined
+    full: FullFormat[] | undefined
   }
 }
 
@@ -33,13 +34,15 @@ export default function TheVideo({ id, video, formats }: Props) {
             <div className='w-full'>
               <h1 className='text-base text-neutral-300 mb-2'>Audio formats</h1>
               <div className='w-full h-[200px] overflow-y-auto py-2 space-y-2'>
-                {formats.audios?.map((audio) => {
+                {formats.audios?.map((format) => {
                   return (
                     <Format
+                      video={video}
+                      format={format}
                       key={v4()}
                       fields={{
-                        first: audio.audioBitrate + 'k',
-                        second: megabytes(Number(audio.contentLength)) + 'MB',
+                        first: format.audioBitrate + 'k',
+                        second: megabytes(Number(format.contentLength)) + 'MB',
                       }}
                     />
                   )
@@ -50,13 +53,34 @@ export default function TheVideo({ id, video, formats }: Props) {
             <div className='w-full'>
               <h1 className='text-base text-neutral-300 mb-2'>Video formats</h1>
               <div className='w-full h-[200px] overflow-y-auto py-2 space-y-2'>
-                {formats.videos?.map((video) => {
+                {formats.videos?.map((format) => {
                   return (
                     <Format
                       key={v4()}
+                      video={video}
+                      format={format}
                       fields={{
-                        first: video.qualityLabel,
-                        second: megabytes(Number(video.contentLength)) + 'MB',
+                        first: format.qualityLabel,
+                        second: megabytes(Number(format.contentLength)) + 'MB',
+                      }}
+                    />
+                  )
+                })}
+              </div>
+            </div>
+
+            <div className='w-full'>
+              <h1 className='text-base text-neutral-300 mb-2'>Full formats</h1>
+              <div className='w-full h-[200px] overflow-y-auto py-2 space-y-2'>
+                {formats.full?.map((format) => {
+                  return (
+                    <Format
+                      key={v4()}
+                      video={video}
+                      format={format}
+                      fields={{
+                        first: format.qualityLabel,
+                        second: format.quality,
                       }}
                     />
                   )

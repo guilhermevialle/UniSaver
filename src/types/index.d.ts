@@ -99,3 +99,32 @@ export type ColorInfo = {
   transferCharacteristics: string
   matrixCoefficients: string
 }
+
+// Full video
+export type FullFormat = {
+  mimeType: string
+  qualityLabel: string
+  bitrate: number
+  audioBitrate: number
+  itag: number
+  width: number
+  height: number
+  lastModified: string
+  quality: string
+  fps: number
+  projectionType: string
+  audioQuality: string
+  approxDurationMs: string
+  audioSampleRate: string
+  audioChannels: number
+  url: string
+  hasVideo: boolean
+  hasAudio: boolean
+  container: string
+  codecs: string
+  videoCodec: string
+  audioCodec: string
+  isLive: boolean
+  isHLS: boolean
+  isDashMPD: boolean
+}
