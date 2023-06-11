@@ -16,6 +16,8 @@ type Props = {
 }
 
 export default function TheVideo({ id, video, formats }: Props) {
+  if (!video || !formats.audios || !formats.videos) return null
+
   return (
     <main className='w-screen h-screen'>
       <Padding stretch={true}>
