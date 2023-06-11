@@ -6,17 +6,17 @@ import { Video } from '@/types'
 import { useRouter } from 'next/navigation'
 
 type Props = {
-  details: Video
+  details: Video | undefined
 }
 
 export default function VideoCard({ details }: Props) {
   const router = useRouter()
 
-  function navigateToVideo() {
-    router.push(`/video/${details.videoId}`)
-  }
-
   if (!details) return null
+
+  function navigateToVideo() {
+    router.push(`/video/${details?.videoId}`)
+  }
 
   return (
     <div
@@ -27,11 +27,14 @@ export default function VideoCard({ details }: Props) {
         <span className='absolute px-1.5 py-0.5 bg-black right-3 bottom-3 rounded-md'>
           {details?.timestamp}
         </span>
-        <img
-          className='w-full h-full object-cover'
-          src={details?.thumbnail}
-          alt={details?.title}
-        />
+        <div className='w-full h-full bg-neutral-900'>
+          <img
+            className='w-full h-full object-cover'
+            src={details?.thumbnail}
+            alt={details?.title}
+            loading='lazy'
+          />
+        </div>
       </div>
 
       <div className='w-full h-[40px] p-3 flex items-center'>
