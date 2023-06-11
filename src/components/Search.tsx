@@ -15,7 +15,7 @@ export default function Search() {
 
     if (input.length > 0) {
       setHasSubmitted(true)
-      // router.push(`/find/${input}`)
+      router.push(`/find/${input}`)
     }
   }
 

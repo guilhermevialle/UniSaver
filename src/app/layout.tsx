@@ -22,7 +22,9 @@ export default function RootLayout({
           rel='stylesheet'
         />
       </head>
-      <body className={inter.className + ' bg-neutral-950'}>{children}</body>
+      <body className={inter.className + ' bg-neutral-950 text-neutral-200'}>
+        {children}
+      </body>
     </html>
   )
 }

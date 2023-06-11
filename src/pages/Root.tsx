@@ -10,15 +10,13 @@ export default function Root() {
     <main className='w-screen h-screen'>
       <Padding stretch={true}>
         <section className='w-full h-full'>
-          <h1 className='text-neutral-200 text-3xl'>
-            Save videos & songs from YouTube
-          </h1>
+          <h1 className='text-3xl'>Save videos & songs from YouTube</h1>
 
           <div className='my-4'>
             <Search />
           </div>
 
-          <div className='w-full text-neutral-200'>
+          <div className='w-full'>
             <h1 className='text-xl my-10'>Why use UniSaver?</h1>
 
             <div className='w-full h-fit flex flex-wrap items-center justify-center gap-6'>
