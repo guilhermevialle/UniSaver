@@ -39,7 +39,7 @@ export default function TheVideo({ id, video, formats }: Props) {
                       key={v4()}
                       fields={{
                         first: audio.audioBitrate + 'k',
-                        second: megabytes(Number(audio.contentLength)),
+                        second: megabytes(Number(audio.contentLength)) + 'MB',
                       }}
                     />
                   )
@@ -56,7 +56,7 @@ export default function TheVideo({ id, video, formats }: Props) {
                       key={v4()}
                       fields={{
                         first: video.qualityLabel,
-                        second: megabytes(Number(video.contentLength)),
+                        second: megabytes(Number(video.contentLength)) + 'MB',
                       }}
                     />
                   )
