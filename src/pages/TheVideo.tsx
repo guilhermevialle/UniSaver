@@ -49,7 +49,7 @@ export default function TheVideo({ id, video, formats }: Props) {
             <div className='flex justify-between items-center mt-8 mb-3 '>
               <h1 className='text-lg font-medium'>Download options</h1>
               <Dropdown
-                buttonTitle='Audio'
+                buttonTitle={option}
                 sectionTitle='Choose type format'
                 buttonSize='w-[120px]'
                 sectionSize='w-[180px]'
