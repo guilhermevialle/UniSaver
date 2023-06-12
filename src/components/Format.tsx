@@ -4,6 +4,8 @@ import { getFormatBlob } from '@/services/api'
 import { AudioFormat, FullFormat, Video, VideoFormat } from '@/types'
 import downloadBlobFile from '@/utils/save'
 import { FiDownload } from 'react-icons/fi'
+import { useEffect, useState } from 'react'
+import { ImSpinner2 } from 'react-icons/im'
 
 type Props = {
   video: Video
@@ -16,17 +18,24 @@ type Props = {
 
 export default function Format({ fields, format, video }: Props) {
   const { first, second } = fields
+  const [isDownloading, setDownloading] = useState<boolean>(false)
+
+  console.log({ first, format, url: video.url })
 
   async function saveThisFile() {
-    const blob = await getFormatBlob(format, video.url)
-    console.log(format.container)
+    try {
+      setDownloading(true)
+      const blob = await getFormatBlob(format, video.url)
+      if (!blob) return
 
-    if (!blob) return
-
-    await downloadBlobFile({
-      blob,
-      title: `[UniSaver] ${video.title}.${format.container}`,
-    })
+      await downloadBlobFile({
+        blob,
+        title: `[UniSaver] ${video.title}.${format.container}`,
+      })
+      setDownloading(false)
+    } catch (error) {
+      setDownloading(false)
+    }
   }
 
   return (
@@ -36,12 +45,18 @@ export default function Format({ fields, format, video }: Props) {
       <div>{second}</div>
       <div className='w-[1px] h-[50%] bg-neutral-800'></div>
       <button
+        id='download-button'
         className='focus:text-emerald-400 transition-all'
         onClick={() => saveThisFile()}
+        disabled={isDownloading}
       >
-        <i>
+        {isDownloading ? (
+          <div className='animate-spin transition-all'>
+            <ImSpinner2 />
+          </div>
+        ) : (
           <FiDownload />
-        </i>
+        )}
       </button>
     </div>
   )
