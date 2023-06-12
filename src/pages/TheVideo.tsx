@@ -15,6 +15,7 @@ import {
 import megabytes from '@/utils/megabytes'
 import { v4 } from 'uuid'
 import { useState } from 'react'
+import Footer from '@/components/Footer'
 
 type Props = {
   id: string
@@ -36,7 +37,7 @@ export default function TheVideo({ id, video, formats }: Props) {
   }
 
   return (
-    <main className='w-screen h-screen'>
+    <main className='w-screen h-fit'>
       <Padding stretch={true}>
         <div className='w-full h-full'>
           <div className='w-full'>
@@ -141,6 +142,7 @@ export default function TheVideo({ id, video, formats }: Props) {
           </div>
         </div>
       </Padding>
+      <Footer />
     </main>
   )
 }

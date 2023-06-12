@@ -4,6 +4,7 @@
 
 import { Video } from '@/types'
 import { useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 type Props = {
   details: Video | undefined
@@ -11,10 +12,13 @@ type Props = {
 
 export default function VideoCard({ details }: Props) {
   const router = useRouter()
+  const pathname = usePathname()
 
   if (!details) return null
 
   function navigateToVideo() {
+    if (pathname === `/video/${details?.videoId}`) return
+
     router.push(`/video/${details?.videoId}`)
   }
 
@@ -24,7 +28,7 @@ export default function VideoCard({ details }: Props) {
       onClick={() => navigateToVideo()}
     >
       <div className='w-full h-[180px] relative'>
-        <span className='absolute px-1.5 py-0.5 bg-black right-3 bottom-3 rounded-md'>
+        <span className='text-sm absolute px-1.5 py-0.5 bg-black right-3 bottom-3 rounded-md'>
           {details?.timestamp}
         </span>
         <div className='w-full h-full bg-neutral-900'>

@@ -6,7 +6,7 @@ type Props = {
 
 export default function IconCard({ title, p, icon }: Props) {
   return (
-    <div className='w-[80%] h-[310px] border-[1px] border-neutral-900 rounded-md flex flex-col items-center justify-center'>
+    <div className='w-full h-[310px] border-[1px] border-neutral-900 rounded-md flex flex-col items-center justify-center'>
       <div className='h-[30%] flex items-center justify-center '>
         <i className='border-[1px] px-3 border-neutral-800 p-2 bg-neutral-900 shadow-sm text-neutral-400 rounded'>
           {icon}

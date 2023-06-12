@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Search from '@/components/Search'
 import VideoCard from '@/components/cards/Video'
 import Padding from '@/components/layout/Padding'
@@ -11,7 +12,7 @@ type Props = {
 
 export default function Find({ results, query }: Props) {
   return (
-    <main className='w-screen h-screen'>
+    <main className='w-screen h-fit'>
       <Padding stretch={true}>
         <div className='my-6 space-y-6'>
           <Search />
@@ -24,6 +25,7 @@ export default function Find({ results, query }: Props) {
           })}
         </div>
       </Padding>
+      <Footer />
     </main>
   )
 }
