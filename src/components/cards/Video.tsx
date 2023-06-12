@@ -28,10 +28,10 @@ export default function VideoCard({ details }: Props) {
       onClick={() => navigateToVideo()}
     >
       <div className='w-full h-[180px] relative'>
-        <span className='text-sm absolute px-1.5 py-0.5 bg-black right-3 bottom-3 rounded-md'>
-          {details?.timestamp}
-        </span>
-        <div className='w-full h-full bg-neutral-900'>
+        <div className='w-full h-full bg-neutral-900 relative'>
+          <span className='text-sm absolute px-1.5 py-0.5 bg-black right-3 bottom-3 rounded-md'>
+            {details?.timestamp}
+          </span>
           <img
             className='w-full h-full object-cover'
             src={details?.thumbnail}

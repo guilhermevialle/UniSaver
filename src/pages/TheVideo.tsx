@@ -48,8 +48,10 @@ export default function TheVideo({ id, video, formats }: Props) {
             <div className='my-6'>
               <Search />
             </div>
-            <div className='w-full'>
-              <VideoCard details={video} />
+            <div className='w-full md:flex md:items-center md:justify-center'>
+              <div className='w-full md:w-[733px]'>
+                <VideoCard details={video} />
+              </div>
             </div>
             <div className='flex justify-between items-center mt-8 mb-3 '>
               <h1 className='text-lg font-medium'>Download options</h1>
