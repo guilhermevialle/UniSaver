@@ -24,7 +24,7 @@ export default function VideoCard({ details }: Props) {
 
   return (
     <div
-      className='w-full h-full border-[1px] border-neutral-800 bg-neutral-900 bg-opacity-50 rounded-md overflow-hidden cursor-pointer hover:bg-opacity-90'
+      className='w-full h-full border-[1px] border-neutral-800 bg-neutral-900 bg-opacity-50 rounded-md overflow-hidden cursor-pointer hover:bg-opacity-90 shadow-md'
       onClick={() => navigateToVideo()}
     >
       <div className='w-full h-[180px] relative'>
