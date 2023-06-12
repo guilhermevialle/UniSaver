@@ -136,3 +136,9 @@ export type DropdownOption = {
 }
 
 export type FormatType = 'Audio' | 'Video' | 'Full'
+
+export type Benefit = {
+  icon: React.ReactNode
+  title: string
+  p: string
+}

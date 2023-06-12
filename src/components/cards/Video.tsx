@@ -24,7 +24,7 @@ export default function VideoCard({ details }: Props) {
 
   return (
     <div
-      className='w-full h-[280px] border-[1px] border-neutral-800 bg-neutral-900 bg-opacity-50 rounded-md overflow-hidden cursor-pointer hover:bg-opacity-90'
+      className='w-full h-full border-[1px] border-neutral-800 bg-neutral-900 bg-opacity-50 rounded-md overflow-hidden cursor-pointer hover:bg-opacity-90'
       onClick={() => navigateToVideo()}
     >
       <div className='w-full h-[180px] relative'>
@@ -47,10 +47,10 @@ export default function VideoCard({ details }: Props) {
 
       <div className='w-full h-[60px] px-3'>
         <h3 className='w-full text-left text-neutral-400 text-sm'>
-          {details?.author.name}
+          {details?.author?.name}
         </h3>
         <h3 className='w-full text-left text-neutral-400 text-sm'>
-          {details?.views.toLocaleString()} views • {details?.ago}
+          {details?.views?.toLocaleString()} views • {details?.ago}
         </h3>
       </div>
     </div>

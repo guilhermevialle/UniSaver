@@ -23,9 +23,16 @@ export default function Find({ results, query }: Props) {
           <h1 className='text-xl'>{query}</h1>
         </div>
 
-        <div className='w-full flex flex-col justify-center items-center gap-4'>
+        <div className='w-full flex flex-col justify-center items-center gap-4 sm:flex-row sm:flex-wrap'>
           {results?.map((details) => {
-            return <VideoCard key={v4()} details={details} />
+            return (
+              <div
+                key={v4()}
+                className='w-full sm:w-[48%] lg:w-[32%] 2xl:w-[22%] h- [280px] '
+              >
+                <VideoCard details={details} />
+              </div>
+            )
           })}
         </div>
       </Padding>
