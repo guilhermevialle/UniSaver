@@ -39,7 +39,7 @@ export default function TheVideo({ id, video, formats }: Props) {
     <main className='w-screen h-screen'>
       <Padding stretch={true}>
         <div className='w-full h-full'>
-          <div className='w-full h-[50%]'>
+          <div className='w-full'>
             <div className='my-6'>
               <Search />
             </div>
@@ -71,13 +71,13 @@ export default function TheVideo({ id, video, formats }: Props) {
             </div>
           </div>
 
-          <div className='w-full h-[50%]'>
+          <div className='w-full'>
             {option == 'Audio' ? (
               <div className='w-full h-full'>
                 <h1 className='text-base text-neutral-300 mb-2'>
                   Audio formats
                 </h1>
-                <div className='w-full h-full overflow-y-auto py-2 space-y-2'>
+                <div className='w-full h-[340px] overflow-y-auto py-2 space-y-2'>
                   {formats.audios?.map((format) => {
                     return (
                       <Format

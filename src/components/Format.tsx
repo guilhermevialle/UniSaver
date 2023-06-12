@@ -20,13 +20,11 @@ export default function Format({ fields, format, video }: Props) {
   const { first, second } = fields
   const [isDownloading, setDownloading] = useState<boolean>(false)
 
-  console.log({ first, format, url: video.url })
-
   async function saveThisFile() {
     try {
       setDownloading(true)
       const blob = await getFormatBlob(format, video.url)
-      if (!blob) return
+      if (!blob) return setDownloading(false)
 
       await downloadBlobFile({
         blob,
