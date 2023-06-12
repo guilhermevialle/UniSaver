@@ -28,7 +28,7 @@ export default function Format({ fields, format, video }: Props) {
       Number(format.contentLength) > 1024 * 1024 * 4.5
     )
       return toast(
-        'Vercel does not support downloading files larger than 4.5MB'
+        'Vercel does not support downloading files larger than 4.5MB.'
       )
 
     try {

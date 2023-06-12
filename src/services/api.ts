@@ -83,3 +83,22 @@ export async function getFormatBlob(
     return undefined
   }
 }
+
+type ValidData = {
+  isValidLink: boolean
+  videoId?: string
+}
+
+export async function validateVideo(
+  link: string
+): Promise<ValidData | undefined> {
+  try {
+    const { data } = await api.post(`/verify_link`, {
+      link,
+    })
+
+    return data
+  } catch (error) {
+    return undefined
+  }
+}

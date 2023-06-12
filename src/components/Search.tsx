@@ -4,14 +4,23 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { TbSearch } from 'react-icons/tb'
 import { ImSpinner2 } from 'react-icons/im'
+import { validateVideo } from '@/services/api'
 
 export default function Search() {
   const [input, setInput] = useState<string>('')
   const [hasSubmitted, setHasSubmitted] = useState<boolean>(false)
   const router = useRouter()
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
+    const validatedLink = await validateVideo(input)
+
+    if (validatedLink?.isValidLink) {
+      setHasSubmitted(true)
+      router.push(`/video/${validatedLink.videoId}`)
+      return
+    }
 
     if (input.length > 0) {
       setHasSubmitted(true)
