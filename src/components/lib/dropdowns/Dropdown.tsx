@@ -79,7 +79,7 @@ export default function Dropdown({
                     closeDropdownSection()
                     option.clickFn && option.clickFn()
                   }}
-                  className='w-full h-11 text-left text-neutral-400 hover:bg-neutral-800 rounded px-4 focus:bg-neutral-700 text-sm'
+                  className='w-full h-11 text-left text-neutral-400 hover:bg-neutral-800 px-4 focus:bg-neutral-700 text-sm'
                 >
                   {option.text}
                 </button>

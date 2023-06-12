@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'ytdown',
+  title: 'UniSaver',
   description:
     'Here you can download thousands of videos and songs from youtube in different formats.',
 }

@@ -46,7 +46,7 @@ export default function TheVideo({ id, video, formats }: Props) {
             <div className='w-full'>
               <VideoCard details={video} />
             </div>
-            <div className='flex justify-between items-center  mt-8 mb-3 '>
+            <div className='flex justify-between items-center mt-8 mb-3 '>
               <h1 className='text-lg font-medium'>Download options</h1>
               <Dropdown
                 buttonTitle='Audio'

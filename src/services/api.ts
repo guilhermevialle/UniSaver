@@ -2,7 +2,7 @@ import { AudioFormat, FullFormat, Video, VideoFormat } from '@/types'
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: 'https://yt-down-api.vercel.app',
+  baseURL: 'https://unisaver-api.vercel.app',
 })
 
 export async function findManyVideos(
@@ -63,12 +63,19 @@ export async function getFormatBlob(
   url: string
 ): Promise<Blob | undefined> {
   try {
-    const { data } = await api.post(`/format/pipe`, {
-      format,
-      url,
-    })
+    const { data } = await api.post(
+      `/format/pipe`,
+      {
+        format,
+        url,
+      },
+      {
+        responseType: 'blob',
+      }
+    )
     return data
   } catch (error) {
+    console.log(error)
     return undefined
   }
 }

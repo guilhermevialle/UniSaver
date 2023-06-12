@@ -1,16 +1,16 @@
-export default async function save(blob: Blob, title: string): Promise<void> {
-  const blobURL = window.URL.createObjectURL(
-    new Blob([blob], { type: blob.type })
-  )
+export default async function downloadBlobFile({
+  blob,
+  title,
+}: {
+  blob: Blob
+  title: string
+}): Promise<void> {
+  const blobURL = await URL.createObjectURL(blob)
   const aLink = document.createElement('a')
   aLink.href = blobURL
   aLink.download = title
-  aLink.style.display = 'none'
   document.body.appendChild(aLink)
-
-  const clickEvent = new MouseEvent('click')
-  aLink.dispatchEvent(clickEvent)
-
+  aLink.click()
   document.body.removeChild(aLink)
-  window.URL.revokeObjectURL(blobURL)
+  URL.revokeObjectURL(blobURL)
 }

@@ -2,7 +2,7 @@
 
 import { getFormatBlob } from '@/services/api'
 import { AudioFormat, FullFormat, Video, VideoFormat } from '@/types'
-import save from '@/utils/save'
+import downloadBlobFile from '@/utils/save'
 import { FiDownload } from 'react-icons/fi'
 
 type Props = {
@@ -19,16 +19,14 @@ export default function Format({ fields, format, video }: Props) {
 
   async function saveThisFile() {
     const blob = await getFormatBlob(format, video.url)
+    console.log(format.container)
 
-    if (blob) {
-      const type =
-        format.hasAudio && format.hasVideo
-          ? `${format.qualityLabel}`
-          : format.hasAudio && !format.hasVideo
-          ? 'AUDIO'
-          : 'VIDEO'
-      await save(blob, `[${type}] ${video.title}`)
-    }
+    if (!blob) return
+
+    await downloadBlobFile({
+      blob,
+      title: `[UniSaver] ${video.title}.${format.container}`,
+    })
   }
 
   return (
