@@ -3,6 +3,7 @@ import Search from '@/components/Search'
 import IconCard from '@/components/cards/IconCard'
 import Padding from '@/components/layout/Padding'
 import Topbar from '@/components/nav/Topbar'
+import TopbarSpace from '@/components/nav/TopbarSpace'
 
 //icons
 import { MdSpeed } from 'react-icons/md'
@@ -11,6 +12,7 @@ export default function Root() {
   return (
     <main className='w-screen h-fit'>
       <Topbar />
+      <TopbarSpace />
       <Padding stretch={true}>
         <section className='w-full h-full'>
           <div className='mt-6'>

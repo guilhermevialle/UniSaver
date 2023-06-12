@@ -16,6 +16,8 @@ import megabytes from '@/utils/megabytes'
 import { v4 } from 'uuid'
 import { useState } from 'react'
 import Footer from '@/components/Footer'
+import Topbar from '@/components/nav/Topbar'
+import TopbarSpace from '@/components/nav/TopbarSpace'
 
 type Props = {
   id: string
@@ -38,6 +40,8 @@ export default function TheVideo({ id, video, formats }: Props) {
 
   return (
     <main className='w-screen h-fit'>
+      <Topbar />
+      <TopbarSpace />
       <Padding stretch={true}>
         <div className='w-full h-full'>
           <div className='w-full'>

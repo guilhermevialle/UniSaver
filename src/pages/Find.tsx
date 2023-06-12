@@ -2,6 +2,8 @@ import Footer from '@/components/Footer'
 import Search from '@/components/Search'
 import VideoCard from '@/components/cards/Video'
 import Padding from '@/components/layout/Padding'
+import Topbar from '@/components/nav/Topbar'
+import TopbarSpace from '@/components/nav/TopbarSpace'
 import { Video } from '@/types'
 import { v4 } from 'uuid'
 
@@ -13,6 +15,8 @@ type Props = {
 export default function Find({ results, query }: Props) {
   return (
     <main className='w-screen h-fit'>
+      <Topbar />
+      <TopbarSpace />
       <Padding stretch={true}>
         <div className='my-6 space-y-6'>
           <Search />
