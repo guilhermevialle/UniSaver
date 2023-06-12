@@ -99,7 +99,7 @@ export default function TheVideo({ id, video, formats }: Props) {
                 <h1 className='text-base text-neutral-300 mb-2'>
                   Video formats
                 </h1>
-                <div className='w-full h-full overflow-y-auto py-2 space-y-2'>
+                <div className='w-full h-[340px] overflow-y-auto py-2 space-y-2'>
                   {formats.videos?.map((format) => {
                     return (
                       <Format
@@ -121,7 +121,7 @@ export default function TheVideo({ id, video, formats }: Props) {
                 <h1 className='text-base text-neutral-300 mb-2'>
                   Full formats
                 </h1>
-                <div className='w-full h-full overflow-y-auto py-2 space-y-2'>
+                <div className='w-full h-[340px] overflow-y-auto py-2 space-y-2'>
                   {formats.full?.map((format) => {
                     return (
                       <Format
