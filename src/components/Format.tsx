@@ -32,7 +32,7 @@ export default function Format({ fields, format, video }: Props) {
   }
 
   return (
-    <div className='w-full h-[70px] border-[1px] border-neutral-900 rounded-md flex items-center p-3 justify-around text-neutral-400'>
+    <div className='w-full h-[70px] border-[1px] border-neutral-900 rounded-md flex items-center p-3 justify-around text-neutral-400 text-sm'>
       <div>{first}</div>
       <div className='w-[1px] h-[50%] bg-neutral-800'></div>
       <div>{second}</div>

@@ -128,3 +128,11 @@ export type FullFormat = {
   isHLS: boolean
   isDashMPD: boolean
 }
+
+//dropdown
+export type DropdownOption = {
+  text: string
+  clickFn?: () => void
+}
+
+export type FormatType = 'Audio' | 'Video' | 'Full'

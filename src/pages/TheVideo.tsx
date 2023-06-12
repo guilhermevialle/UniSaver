@@ -1,10 +1,20 @@
+'use client'
+
 import Format from '@/components/Format'
 import Search from '@/components/Search'
 import VideoCard from '@/components/cards/Video'
 import Padding from '@/components/layout/Padding'
-import { AudioFormat, FullFormat, Video, VideoFormat } from '@/types'
+import Dropdown from '@/components/lib/dropdowns/Dropdown'
+import {
+  AudioFormat,
+  FormatType,
+  FullFormat,
+  Video,
+  VideoFormat,
+} from '@/types'
 import megabytes from '@/utils/megabytes'
 import { v4 } from 'uuid'
+import { useState } from 'react'
 
 type Props = {
   id: string
@@ -17,7 +27,13 @@ type Props = {
 }
 
 export default function TheVideo({ id, video, formats }: Props) {
+  const [option, setOption] = useState<FormatType>('Audio')
+
   if (!video || !formats.audios || !formats.videos) return null
+
+  function setFormatTypeOption(type: FormatType) {
+    setOption(type as FormatType)
+  }
 
   return (
     <main className='w-screen h-screen'>
@@ -28,9 +44,31 @@ export default function TheVideo({ id, video, formats }: Props) {
         <div className='w-full'>
           <VideoCard details={video} />
 
-          <h1 className='text-lg mt-8 mb-3 font-medium'>Download options</h1>
+          <div className='flex justify-between items-center  mt-8 mb-3 '>
+            <h1 className='text-lg font-medium'>Download options</h1>
+            <Dropdown
+              buttonTitle='Audio'
+              sectionTitle='Choose type format'
+              buttonSize='w-[120px]'
+              sectionSize='w-[180px]'
+              options={[
+                {
+                  text: 'Audio',
+                  clickFn: () => setFormatTypeOption('Audio'),
+                },
+                {
+                  text: 'Video',
+                  clickFn: () => setFormatTypeOption('Video'),
+                },
+                {
+                  text: 'Full',
+                  clickFn: () => setFormatTypeOption('Full'),
+                },
+              ]}
+            />
+          </div>
 
-          <div className='w-full space-y-6'>
+          {option == 'Audio' ? (
             <div className='w-full'>
               <h1 className='text-base text-neutral-300 mb-2'>Audio formats</h1>
               <div className='w-full h-[200px] overflow-y-auto py-2 space-y-2'>
@@ -49,7 +87,7 @@ export default function TheVideo({ id, video, formats }: Props) {
                 })}
               </div>
             </div>
-
+          ) : option == 'Video' ? (
             <div className='w-full'>
               <h1 className='text-base text-neutral-300 mb-2'>Video formats</h1>
               <div className='w-full h-[200px] overflow-y-auto py-2 space-y-2'>
@@ -68,7 +106,7 @@ export default function TheVideo({ id, video, formats }: Props) {
                 })}
               </div>
             </div>
-
+          ) : (
             <div className='w-full'>
               <h1 className='text-base text-neutral-300 mb-2'>Full formats</h1>
               <div className='w-full h-[200px] overflow-y-auto py-2 space-y-2'>
@@ -87,7 +125,7 @@ export default function TheVideo({ id, video, formats }: Props) {
                 })}
               </div>
             </div>
-          </div>
+          )}
         </div>
       </Padding>
     </main>
