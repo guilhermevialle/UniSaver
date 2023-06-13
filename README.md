@@ -2,7 +2,7 @@
 
 UniSaver is an application that allows you to download videos from YouTube quickly and easily. With UniSaver, you can save your favorite YouTube videos for offline viewing.
 
-You can check it out on the [UniSaver website](https://unisaver.vercel.app).
+You can check it out on the [UniSaver](https://unisaver.vercel.app) website.
 
 ## Features
 
