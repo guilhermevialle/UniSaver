@@ -1,7 +1,7 @@
 # Youtube Catcher
 
 Download your favorite music or videos from youtube via link or video name and export in different quality formats.
-Explore [here](https://unisaver.vercel.app).
+Explore [here](./preview/yt-catcher_preview.gif).
 
 ## Features
 
