@@ -1,10 +1,13 @@
 'use client'
 
+import Footer from '@/components/Footer'
 import Format from '@/components/Format'
 import Search from '@/components/Search'
 import VideoCard from '@/components/cards/Video'
 import Padding from '@/components/layout/Padding'
 import Dropdown from '@/components/lib/dropdowns/Dropdown'
+import Topbar from '@/components/nav/Topbar'
+import TopbarSpace from '@/components/nav/TopbarSpace'
 import {
   AudioFormat,
   FormatType,
@@ -13,11 +16,8 @@ import {
   VideoFormat,
 } from '@/types'
 import megabytes from '@/utils/megabytes'
-import { v4 } from 'uuid'
 import { useState } from 'react'
-import Footer from '@/components/Footer'
-import Topbar from '@/components/nav/Topbar'
-import TopbarSpace from '@/components/nav/TopbarSpace'
+import { v4 } from 'uuid'
 
 type Props = {
   id: string
@@ -53,8 +53,8 @@ export default function TheVideo({ id, video, formats }: Props) {
                 <VideoCard details={video} />
               </div>
             </div>
-            <div className='flex justify-between items-center mt-8 mb-3 '>
-              <h1 className='text-lg font-medium'>Download options</h1>
+            <div className='flex justify-between items-center mt-8 mb-3'>
+              <h1 className='text-base font-medium'>Download options</h1>
               <Dropdown
                 buttonTitle={option}
                 sectionTitle='Choose type format'
@@ -81,9 +81,7 @@ export default function TheVideo({ id, video, formats }: Props) {
           <div className='w-full'>
             {option == 'Audio' ? (
               <div className='w-full h-full'>
-                <h1 className='text-base text-neutral-300 mb-2'>
-                  Audio formats
-                </h1>
+                <h1 className='text-sm text-neutral-300 mb-2'>Audio formats</h1>
                 <div className='w-full h-[340px] overflow-y-auto py-2 space-y-2'>
                   {formats.audios?.map((format) => {
                     return (

@@ -21,7 +21,7 @@ export default function Topbar() {
             onClick={() => router.push('/')}
           >
             <Image src={Logo} height={23} width={23} alt='Youtube Catcher' />
-            <h1 className='text-neutral-300'>YouTube Catcher</h1>
+            <h1 className='text-neutral-300'>Catcher</h1>
           </button>
           <div className='h-fit flex gap-x-3 items-center'>
             <a href='https://github.com/guilhermevialle'>

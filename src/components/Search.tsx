@@ -1,10 +1,10 @@
 'use client'
 
+import { validateVideo } from '@/services/api'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
-import { TbSearch } from 'react-icons/tb'
 import { ImSpinner2 } from 'react-icons/im'
-import { validateVideo } from '@/services/api'
+import { TbSearch } from 'react-icons/tb'
 
 export default function Search() {
   const [input, setInput] = useState<string>('')
@@ -15,9 +15,9 @@ export default function Search() {
     e.preventDefault()
 
     const validatedLink = await validateVideo(input)
+    setHasSubmitted(true)
 
     if (validatedLink?.isValidLink) {
-      setHasSubmitted(true)
       router.push(`/video/${validatedLink.videoId}`)
       return
     }
@@ -30,7 +30,7 @@ export default function Search() {
 
   return (
     <form
-      className='w-full h-[50px] flex text-neutral-500 border-[1px] border-neutral-800 rounded-md shadow-sm'
+      className='w-full h-[46px] flex text-neutral-500 border-[1px] border-neutral-800 rounded-md shadow-sm'
       onSubmit={(e) => onSubmit(e)}
     >
       <div className='w-[40px] h-full flex items-center justify-center'>
@@ -39,7 +39,7 @@ export default function Search() {
         </i>
       </div>
       <input
-        className='bg-transparent outline-none flex-auto text-neutral-200 overflow-hidden placeholder:text-neutral-500'
+        className='bg-transparent outline-none flex-auto text-neutral-200 overflow-hidden placeholder:text-neutral-500 text-sm'
         type='text'
         onChange={(e) => setInput(e.target.value)}
         placeholder='Find something or paste a link URL'

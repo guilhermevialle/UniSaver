@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className='w-full h-12 flex items-center mt-6'>
       <Padding stretch={true}>
         <h1 className='text-sm font-medium text-neutral-500'>
-          © 2023 UniSaver™. All Rights Reserved.
+          © 2023 Youtube Catcher. All Rights Reserved.
         </h1>
       </Padding>
     </footer>

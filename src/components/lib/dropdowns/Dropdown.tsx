@@ -1,7 +1,7 @@
 'use client'
 
 import { DropdownOption } from '@/types'
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BiChevronDown } from 'react-icons/bi'
 import { v4 as uuid } from 'uuid'
 
@@ -47,7 +47,9 @@ export default function Dropdown({
   return (
     <div
       ref={dropdownRef}
-      className={`${buttonSize ? buttonSize : 'w-40 '} h-fit relative flex`}
+      className={`${
+        buttonSize ? buttonSize : 'w-40 '
+      } h-fit relative flex text-sm`}
     >
       <button
         className='bg-neutral-900 flex-auto flex text-left border-[1px] border-neutral-800 hover:border-neutral-700 focus:border-neutral-600 p-2 px-3 rounded items-center justify-between shadow-sm text-sm'
