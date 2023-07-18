@@ -6,10 +6,9 @@ import Topbar from '@/components/nav/Topbar'
 import TopbarSpace from '@/components/nav/TopbarSpace'
 import { Benefit } from '@/types'
 
-//icons
-import { MdSpeed, MdAccessibilityNew, MdShield } from 'react-icons/md'
-import { v4 } from 'uuid'
 import { FaHandHoldingHeart } from 'react-icons/fa'
+import { MdAccessibilityNew, MdShield, MdSpeed } from 'react-icons/md'
+import { v4 } from 'uuid'
 
 const Benefits: Benefit[] = [
   {
