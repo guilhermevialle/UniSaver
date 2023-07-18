@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className='w-full h-12 flex items-center mt-6'>
       <Padding stretch={true}>
-        <h1 className='text-sm font-medium text-neutral-500'>
+        <h1 className='text-sm font-medium text-neutral-500 text-center'>
           © 2023 Youtube Catcher. All Rights Reserved.
         </h1>
       </Padding>

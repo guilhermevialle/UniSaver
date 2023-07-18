@@ -1,6 +1,5 @@
 import Footer from '@/components/Footer'
 import Search from '@/components/Search'
-import Padding from '@/components/layout/Padding'
 import Topbar from '@/components/nav/Topbar'
 import TopbarSpace from '@/components/nav/TopbarSpace'
 import { Benefit } from '@/types'
@@ -37,17 +36,17 @@ export default function Root() {
     <main className='w-screen h-screen'>
       <Topbar />
       <TopbarSpace />
-      <Padding className='h-fit' stretch={true}>
-        <section className='w-full h-fit'>
+      <section className='w-full h-[70vh] flex items-center justify-center'>
+        <div className='w-[90%] max-w-[400px]'>
           <div className='mt-6'>
             <h1 className='text-xl'>Save videos & songs from YouTube</h1>
             <div className='my-4'>
               <Search />
             </div>
           </div>
-        </section>
-      </Padding>
-      <Footer />
+          <Footer />
+        </div>
+      </section>
     </main>
   )
 }
