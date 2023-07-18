@@ -1,8 +1,7 @@
-# UniSaver
+# Youtube Catcher
 
-UniSaver is an application that allows you to download videos from YouTube quickly and easily. With UniSaver, you can save your favorite YouTube videos for offline viewing.
-
-You can check it out on the [UniSaver](https://unisaver.vercel.app) website.
+Download your favorite music or videos from youtube via link or video name and export in different quality formats.
+Explore [here](https://unisaver.vercel.app).
 
 ## Features
 
