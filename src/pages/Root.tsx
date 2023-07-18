@@ -39,12 +39,14 @@ export default function Root() {
       <section className='w-full h-[70vh] flex items-center justify-center'>
         <div className='w-[90%] max-w-[400px]'>
           <div className='mt-6'>
-            <h1 className='text-xl'>Save videos & songs from YouTube</h1>
+            <h1 className='text-xl text-center'>
+              Save videos & songs from YouTube
+            </h1>
             <div className='my-4'>
               <Search />
             </div>
+            <Footer />
           </div>
-          <Footer />
         </div>
       </section>
     </main>
