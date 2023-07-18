@@ -17,10 +17,11 @@ export default function Topbar() {
       <Padding stretch={true}>
         <div className='w-full h-full flex items-center justify-between'>
           <button
-            className='text-base font-semibold'
+            className='text-base font-medium flex gap-x-2.5 items-center'
             onClick={() => router.push('/')}
           >
-            <Image src={Logo} height={34} width={34} alt='Youtube Catcher' />
+            <Image src={Logo} height={23} width={23} alt='Youtube Catcher' />
+            <h1 className='text-neutral-300'>YouTube Catcher</h1>
           </button>
           <div className='h-fit flex gap-x-3 items-center'>
             <a href='https://github.com/guilhermevialle'>
