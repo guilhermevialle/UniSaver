@@ -14,16 +14,15 @@ export default function Search() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    const validatedLink = await validateVideo(input)
-    setHasSubmitted(true)
-
-    if (validatedLink?.isValidLink) {
-      router.push(`/video/${validatedLink.videoId}`)
-      return
-    }
-
     if (input.length > 0) {
       setHasSubmitted(true)
+      const validatedLink = await validateVideo(input)
+
+      if (validatedLink?.isValidLink) {
+        router.push(`/video/${validatedLink.videoId}`)
+        return
+      }
+
       router.push(`/find/${input}`)
     }
   }
