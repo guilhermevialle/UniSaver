@@ -2,7 +2,10 @@
 
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+
+import { SiGithub } from 'react-icons/si'
 import Logo from '../../../public/logo.png'
+
 import Padding from '../layout/Padding'
 import Button from '../lib/buttons/Default'
 
@@ -20,7 +23,12 @@ export default function Topbar() {
             <Image src={Logo} height={34} width={34} alt='Youtube Catcher' />
           </button>
           <div className='h-fit flex gap-x-3 items-center'>
-            <Button />
+            <a href='https://github.com/guilhermevialle'>
+              <Button>
+                <SiGithub />
+                guilhermevialle
+              </Button>
+            </a>
           </div>
         </div>
       </Padding>
